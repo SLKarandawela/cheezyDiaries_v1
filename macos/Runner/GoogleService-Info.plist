@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>735015269216-ggq81ikqgqn8ngbokbfp2k6kv81ef3vu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.735015269216-ggq81ikqgqn8ngbokbfp2k6kv81ef3vu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA8157Bm1QuR3gBmRpcxvgLbg_U-CAuGFQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>735015269216</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.cheezyDiaryRecipieApp</string>
+	<key>PROJECT_ID</key>
+	<string>cheezy-diaries-ctse</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cheezy-diaries-ctse.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:735015269216:ios:7e9ce4ad9f7ccd75a6a405</string>
+</dict>
+</plist>
