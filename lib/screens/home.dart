@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("My Recipe App"),
+        title: const Text("My Recipes"),
         actions: [
           IconButton(
             onPressed: () {
@@ -107,7 +107,7 @@ class _HomeState extends State<Home> {
               title: Row(
                 children: [
                   const Text(
-                    "Add Recipie",
+                    "Add Recipe",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -135,7 +135,7 @@ class _HomeState extends State<Home> {
                   ),
                   autofocus: true,
                   decoration: const InputDecoration(
-                    hintText: "Type the recipie here",
+                    hintText: "Type the recipe here",
                     hintStyle: TextStyle(color: Colors.white70),
                     border: InputBorder.none,
                   ),
@@ -208,7 +208,7 @@ class _HomeState extends State<Home> {
                                   listRecipies[index].ingredients +' '+ listRecipies[index].description,
                                   style: const TextStyle(
                                     fontSize: 25,
-                                    color: Color.fromARGB(255, 59, 59, 59),
+                                    color: Color.fromARGB(255, 17, 21, 22),
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -238,14 +238,14 @@ class _HomeState extends State<Home> {
                 horizontal: 25,
                 vertical: 20,
               ),
-              backgroundColor: Colors.grey[800],
+              backgroundColor: Color.fromARGB(255, 0, 19, 34),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
               title: Row(
                 children: [
                   const Text(
-                    "Add Your Recipie",
+                    "Add Your Recipe",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
@@ -255,7 +255,7 @@ class _HomeState extends State<Home> {
                   IconButton(
                     icon: const Icon(
                       Icons.cancel,
-                      color: Colors.grey,
+                      color: Color.fromARGB(92, 101, 157, 209),
                       size: 30,
                     ),
                     onPressed: () => Navigator.pop(context),
@@ -273,7 +273,7 @@ class _HomeState extends State<Home> {
                   ),
                   autofocus: true,
                   decoration: const InputDecoration(
-                    hintText: "Type the recipie here",
+                    hintText: "Type the recipe here",
                     hintStyle: TextStyle(color: Colors.white70),
                     border: InputBorder.none,
                   ),
