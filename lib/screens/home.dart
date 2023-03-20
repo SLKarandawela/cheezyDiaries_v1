@@ -72,6 +72,7 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const Icon(Icons.food_bank_rounded, color:Color.fromARGB(155, 2, 48, 133),  size:60),
                     const Text(
                       "All Recipies",
                       style: TextStyle(
