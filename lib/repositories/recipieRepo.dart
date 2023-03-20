@@ -5,6 +5,7 @@ class RecipiesRepository {
   final CollectionReference recipieCollection =
       FirebaseFirestore.instance.collection('recipies');
 
+  //Add Recipe
   Future addRecipie(String title, String description, String ingredients) async {
     return await recipieCollection.add({
       "title": title,
@@ -13,6 +14,7 @@ class RecipiesRepository {
     });
   }
 
+  //Edit Recipe
   Future editRecipie(id,String title, String description, String ingredients) async {
     await recipieCollection.doc(id).update({
       "title": title,
@@ -21,10 +23,12 @@ class RecipiesRepository {
     });
   }
 
+  //Delete Recipe
   Future removeRecipie(id) async {
     await recipieCollection.doc(id).delete();
   }
 
+  //Retrieve Recipe List
   List<Recipies> recipiesList(QuerySnapshot snapshot) {
     return snapshot.docs.map((e) {
       return Recipies(

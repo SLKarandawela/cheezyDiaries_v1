@@ -1,4 +1,5 @@
 class Recipies {
+  //Recipe attributes
   String id;
   String title;
   String description;
