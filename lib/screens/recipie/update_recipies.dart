@@ -2,26 +2,27 @@ import 'dart:math';
 import 'package:cheezy_diaries/model/journal/my_journal.dart';
 import 'package:cheezy_diaries/model/recipies/recipies.dart';
 import 'package:cheezy_diaries/screens/journal/logs_list.dart';
+import 'package:cheezy_diaries/screens/recipie/recipie_list.dart';
 import 'package:cheezy_diaries/widgets/date_picker.dart';
 import 'package:cheezy_diaries/widgets/location_picker.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/header.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class RecipieCreate extends StatefulWidget {
-  const RecipieCreate({super.key});
+class RecipieUpdate extends StatelessWidget {
+  final Recipie recipieItem;
 
-  @override
-  State<RecipieCreate> createState() => _RecipieCreateState();
-}
-
-class _RecipieCreateState extends State<RecipieCreate> {
   final TextEditingController resNamecontroller = TextEditingController();
   final TextEditingController resIngcontroller = TextEditingController();
   final TextEditingController resDesccontroller = TextEditingController();
 
+  RecipieUpdate({super.key, required this.recipieItem});
+
   @override
   Widget build(BuildContext context) {
+    resNamecontroller.text = recipieItem.recipieTitle;
+    resIngcontroller.text = recipieItem.ingrediants;
+    resDesccontroller.text = recipieItem.resDescription;
     return Scaffold(
       body: Column(
         children:  [
@@ -38,12 +39,14 @@ class _RecipieCreateState extends State<RecipieCreate> {
                   children: [
                     ElevatedButton(
                       onPressed: (){
-                        // Recipie myRecipie = Recipie(logTitle: namecontroller.text, logDate: datecontroller.text, logDescription: desccontroller.text );
-                        Recipie myRecipie = Recipie(recipieTitle: resNamecontroller.text, ingrediants: resIngcontroller.text, resDescription: resDesccontroller.text);
-                        addRecipieAndNavigate(myRecipie, context);
+                        Recipie updatedRecipie = Recipie(id: recipieItem.id,recipieTitle: resNamecontroller.text, ingrediants: resIngcontroller.text, resDescription: resDesccontroller.text);
+                        final CollectionReference = FirebaseFirestore.instance.collection('recipie');
+                        CollectionReference.doc(updatedRecipie.id).update(updatedRecipie.toJson()).whenComplete((){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> RecipieList()));
+                        });
 
                     }, 
-                    child: const Text('Add'),),    
+                    child: const Text('update'),),    
                     
                     ElevatedButton(
                       onPressed: (){
@@ -81,7 +84,7 @@ class _RecipieCreateState extends State<RecipieCreate> {
       ),
     );
   }
-  
+
   void addRecipieAndNavigate(Recipie mRecipie, BuildContext context) {
     // reference to firebase
     final recipieRef = FirebaseFirestore.instance.collection('recipie').doc();
@@ -91,7 +94,4 @@ class _RecipieCreateState extends State<RecipieCreate> {
       Navigator.push(context, MaterialPageRoute(builder: (context)=> LogList(),));
     });
   }
-
-
-
 }

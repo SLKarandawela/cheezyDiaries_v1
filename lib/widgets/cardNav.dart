@@ -1,10 +1,12 @@
 import 'package:cheezy_diaries/screens/journal/logs_list.dart';
+import 'package:cheezy_diaries/screens/recipie/add_recipie.dart';
+import 'package:cheezy_diaries/screens/recipie/recipie_list.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
   final List<CardModel> _cards = [
     CardModel(label: 'My Diary',imagePath: 'images/diary.png', page: LogList(),),
-    CardModel(label: 'Cook Book',imagePath: 'images/fry.png', page: LogList(),),
+    CardModel(label: 'Cook Book',imagePath: 'images/fry.png', page: RecipieList(),),
     CardModel(label: 'Food Hunt',imagePath: 'images/pizza.png', page: LogList(),),
     CardModel(label: 'Workouts',imagePath: 'images/schedule.png', page: LogList(),),
 
