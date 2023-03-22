@@ -58,7 +58,6 @@ class WorkoutEdit extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: (){
-                        // Recipie myRecipie = Recipie(logTitle: namecontroller.text, logDate: datecontroller.text, logDescription: desccontroller.text );
                         Workout updatedWorkout = Workout(
                           id: workoutLog.id,
                           workoutFeedback: workNamecontroller.text,
