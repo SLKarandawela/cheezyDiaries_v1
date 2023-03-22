@@ -1,6 +1,7 @@
 import 'package:cheezy_diaries/screens/home_page.dart';
 import 'package:cheezy_diaries/screens/journal/add_journal.dart';
 import 'package:cheezy_diaries/screens/journal/logs_list.dart';
+import 'package:cheezy_diaries/widgets/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: SplashScreen(),
       
     );
   }

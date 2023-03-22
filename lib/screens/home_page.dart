@@ -12,11 +12,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.restaurant), label: 'Food'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Me'),
-      ]),
       backgroundColor: Colors.grey[100],
       body: SafeArea(
         child: Column(children: [
@@ -40,6 +35,7 @@ class _HomePageState extends State<HomePage> {
           )
         ],),
       ),
+      
 
       
     );
