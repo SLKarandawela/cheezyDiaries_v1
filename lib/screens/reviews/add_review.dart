@@ -103,6 +103,7 @@ class _ReviewCreateState extends State<ReviewCreate> {
     final data = mReview.toJson();
     wkRef.set(data).whenComplete((){
       Navigator.push(context, MaterialPageRoute(builder: (context)=> LogList(),));
+     
     });
   }
 
