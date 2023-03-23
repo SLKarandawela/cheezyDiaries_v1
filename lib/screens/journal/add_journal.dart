@@ -24,74 +24,84 @@ class _JournalCreateState extends State<JournalCreate> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children:  [
+        children: [
           const ScreenHeader(),
-          Expanded(child: SingleChildScrollView(
+          Expanded(
+              child: SingleChildScrollView(
             child: Column(
               children: [
-                getMyField(hintText: 'Overall Memory', controller: namecontroller),
-                DatePickerFormField(hintText: 'Date', textEditingController: datecontroller),
+                getMyField(
+                    hintText: 'Overall Memory', controller: namecontroller),
+                DatePickerFormField(
+                    hintText: 'Date', textEditingController: datecontroller),
                 getMyField(hintText: 'Description', controller: desccontroller),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
-                      onPressed: (){
-                        JournalLog jLog = JournalLog(logTitle: namecontroller.text, logDate: datecontroller.text, logDescription: desccontroller.text );
+                      onPressed: () {
+                        JournalLog jLog = JournalLog(
+                            logTitle: namecontroller.text,
+                            logDate: datecontroller.text,
+                            logDescription: desccontroller.text);
 
                         addLogAndNavigate(jLog, context);
-
-                    }, 
-                    child: const Text('Add'),),    
-                    
+                      },
+                      child: const Text('Add'),
+                      style: ButtonStyle(
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          
+                        ),
+                      ),
+                    ),
                     ElevatedButton(
-                      onPressed: (){
+                      onPressed: () {
                         namecontroller.text = '';
                         datecontroller.text = '';
                         desccontroller.text = '';
-
-                    }, 
-                    child: const Text('Reset'),),   
-                    
-                                  ],
+                      },
+                      child: const Text('Reset'),
+                    ),
+                  ],
                 )
-
-
-
               ],
             ),
           ))
         ],
       ),
-      
     );
   }
 
-  Widget getMyField({required String hintText, required TextEditingController controller}){
+  Widget getMyField(
+      {required String hintText, required TextEditingController controller}) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
-          hintText: 'Enter $hintText',labelText: hintText, border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(5))
-          )
-        ),
+            hintText: 'Enter $hintText',
+            labelText: hintText,
+            border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(5)))),
       ),
     );
   }
-  
+
   void addLogAndNavigate(JournalLog jLog, BuildContext context) {
     // reference to firebase
-    final journalLogRef = FirebaseFirestore.instance.collection('journal').doc();
+    final journalLogRef =
+        FirebaseFirestore.instance.collection('journal').doc();
     jLog.id = journalLogRef.id;
     final data = jLog.toJson();
-    journalLogRef.set(data).whenComplete((){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> LogList(),));
+    journalLogRef.set(data).whenComplete(() {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LogList(),
+          ));
     });
   }
-
-
-
 }

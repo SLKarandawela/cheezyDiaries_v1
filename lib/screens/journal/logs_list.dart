@@ -47,7 +47,8 @@ class LogList extends StatelessWidget {
                         logTitle: e['logTitle'],
                         logDate: e['logDate'],
                         logDescription: e['logDescription']))
-                    .toList();
+                    .toList()
+                  ..sort((a, b) => b.logDate.compareTo(a.logDate));
                 return _getBody(journalLogs);
               } else {
                 return Center(
@@ -59,16 +60,24 @@ class LogList extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const JournalCreate(),
-            ));
-  
-      },child: Icon(Icons.add),),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const JournalCreate(),
+              ));
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
+
+  TextStyle headerTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
 
   Widget _getBody(journalLogs) {
     return Expanded(
@@ -101,7 +110,11 @@ class LogList extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    title: Text(journalLogs[index].logTitle),
+                    title: Text(
+                      journalLogs[index].logTitle,
+                      style: headerTextStyle,
+                    ),
+                    subtitle: Text(journalLogs[index].logDate),
                     leading: const CircleAvatar(
                       radius: 25,
                       backgroundImage: AssetImage('assets/images/fry.png'),
@@ -111,7 +124,10 @@ class LogList extends StatelessWidget {
                         child: Row(
                           children: [
                             InkWell(
-                              child: Icon(Icons.edit),
+                              child: Icon(
+                                Icons.edit,
+                                color: Colors.blue.shade400,
+                              ),
                               onTap: () {
                                 Navigator.push(
                                     context,
@@ -122,7 +138,10 @@ class LogList extends StatelessWidget {
                               },
                             ),
                             InkWell(
-                              child: Icon(Icons.delete),
+                              child: const Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
                               onTap: () {
                                 showDialog(
                                   context: context,
@@ -147,14 +166,6 @@ class LogList extends StatelessWidget {
                                 );
                               },
                             ),
-
-                            // InkWell(
-                            //   child: Icon(Icons.delete),
-                            //   onTap: () {
-                            //   _reference.doc(journalLogs[index].id).delete();
-                            //   Navigator.push(context, MaterialPageRoute(builder: (context)=> LogList()));
-
-                            // },)
                           ],
                         )),
                   ),
@@ -164,6 +175,8 @@ class LogList extends StatelessWidget {
           ),
         ),
       ),
+      
     );
+    
   }
 }
