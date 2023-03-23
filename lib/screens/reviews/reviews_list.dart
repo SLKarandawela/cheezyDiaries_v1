@@ -64,28 +64,51 @@ Widget _getBody(reviews) {
   return Expanded(
           child: ListView.builder(
             itemCount: reviews.length,
-            itemBuilder: (context, index) => Card(
-              child: ListTile(
-                title: Text(reviews[index].restName),
-                leading: const CircleAvatar(
-                  radius: 25,
-                ),
-                trailing: SizedBox(
-                  width: 60,
-                  child: Row(
-                  children: [
-                    InkWell(child: Icon(Icons.edit),onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) =>
-                         ReviewUpdate(myReview: reviews[index],)));
-                    },),
-                    InkWell(child: Icon(Icons.delete),onTap: () {
-                      _reference.doc(reviews[index].id).delete();
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> ReviewList()));
-                      
-                    },)
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                      10), // Add the same border radius to the container
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey
+                          .withOpacity(0.5), // Choose your desired color
+                      spreadRadius: 2, // The spread radius of the shadow
+                      blurRadius: 5, // The blur radius of the shadow
+                      offset: Offset(0, 3), // The position of the shadow
+                    ),
                   ],
-                )),
+                ),
+                child: Card(
+                  elevation: 4, // This will add a default shadow
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                            10), // Add a border radius to the card
+                      ),
+                  child: ListTile(
+                    title: Text(reviews[index].restName),
+                    leading: const CircleAvatar(
+                      radius: 25,
+                    ),
+                    trailing: SizedBox(
+                      width: 60,
+                      child: Row(
+                      children: [
+                        InkWell(child: Icon(Icons.edit),onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) =>
+                             ReviewUpdate(myReview: reviews[index],)));
+                        },),
+                        InkWell(child: Icon(Icons.delete),onTap: () {
+                          _reference.doc(reviews[index].id).delete();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> ReviewList()));
+                          
+                        },)
+                      ],
+                    )),
+                  ),
+                ),
               ),
             ),
           ),
