@@ -34,21 +34,33 @@ class Dashboard extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => card.page),
               );
             },
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/${card.imagePath}',
-                    width: 100,
-                    height: 100,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(10.0), // replace with your card's border radius value
+    border: Border.all(
+      color: Colors.blue,
+      width: 1.0,
+    ),
+  ),
+                child: Card(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/${card.imagePath}',
+                        width: 100,
+                        height: 100,
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        card.label,
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    card.label,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ],
+                ),
               ),
             ),
           );

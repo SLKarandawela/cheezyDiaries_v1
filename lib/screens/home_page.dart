@@ -28,10 +28,13 @@ class _HomePageState extends State<HomePage> {
             ]),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(20.0),
             child: Container(
               height: 500,
-              child: Dashboard()),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: Dashboard(),
+              )),
           )
         ],),
       ),
