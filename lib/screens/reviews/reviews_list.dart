@@ -113,6 +113,8 @@ class ReviewList extends StatelessWidget {
                     subtitle: Text(reviews[index].reviewTitle),
                     leading: const CircleAvatar(
                       radius: 25,
+                      backgroundImage: AssetImage('assets/images/cuisine.png'),
+
                     ),
                     trailing: SizedBox(
                         width: 60,

@@ -63,6 +63,11 @@ class RecipieList extends StatelessWidget {
     );
   }
 
+ TextStyle headerTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
   Widget _getBody(recipies) {
     return Expanded(
       child: ListView.builder(
@@ -92,10 +97,10 @@ class RecipieList extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
-                  title: Text(recipies[index].recipieTitle),
+                  title: Text(recipies[index].recipieTitle, style: headerTextStyle,),
                   leading: const CircleAvatar(
                     radius: 25,
-                    backgroundImage: AssetImage('assets/images/fry.png'),
+                    backgroundImage: AssetImage('assets/images/cooking.png'),
                   ),
                   trailing: SizedBox(
                       width: 60,

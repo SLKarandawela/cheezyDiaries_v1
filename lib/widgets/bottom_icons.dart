@@ -24,6 +24,38 @@ class BottomIconsWidget extends StatelessWidget {
                   ));
             },
           ),
+          
+            IconButton(
+            icon: Icon(Icons.fastfood),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>  RecipieList(),
+                  ));
+            },
+          ),
+      
+          IconButton(
+            icon: Icon(Icons.restaurant),
+            onPressed: () {
+               Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>  ReviewList(),
+                  ));
+            },
+          ),
+              IconButton(
+            icon: Icon(Icons.favorite_border),
+            onPressed: () {
+               Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>  WorkoutList(),
+                  ));
+            },
+          ),
           IconButton(
             icon: Icon(Icons.description),
             onPressed: () {
@@ -34,36 +66,8 @@ class BottomIconsWidget extends StatelessWidget {
                   ));
             },
           ),
-          IconButton(
-            icon: Icon(Icons.notifications),
-            onPressed: () {
-               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>  ReviewList(),
-                  ));
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () {
-               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>  WorkoutList(),
-                  ));
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.exit_to_app),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>  RecipieList(),
-                  ));
-            },
-          ),
+          
+        
         ],
       ),
     );

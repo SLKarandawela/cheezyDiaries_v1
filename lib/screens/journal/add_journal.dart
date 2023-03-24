@@ -26,62 +26,88 @@ class _JournalCreateState extends State<JournalCreate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const ScreenHeader(title: "Create new log",),
-          Expanded(
-              child: SingleChildScrollView(
-            child: Column(
-              children: [
-                getMyField(
-                    hintText: 'Overall Memory', controller: namecontroller),
-                DatePickerFormField(
-                    hintText: 'Date', textEditingController: datecontroller),
-                getMyField(hintText: 'Description', controller: desccontroller),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        JournalLog jLog = JournalLog(
-                            logTitle: namecontroller.text,
-                            logDate: datecontroller.text,
-                            logDescription: desccontroller.text);
-
-                        addLogAndNavigate(jLog, context);
-                      },
-                      child: const Text('Add'),
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        namecontroller.text = '';
-                        datecontroller.text = '';
-                        desccontroller.text = '';
-                      },
-                      child: const Text('Reset'),
-                    ),
-                  ],
-                )
-              ],
+        body: Column(
+          children: [
+            const ScreenHeader(
+              title: "Create new log",
             ),
-          ))
-
-        ],
-      ),
-          bottomNavigationBar:BottomIconsWidget()
-      
-    );
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Expanded(
+                  child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    getMyField(
+                        hintText: 'Overall Memory', controller: namecontroller),
+                    DatePickerFormField(
+                        hintText: 'Date', textEditingController: datecontroller),
+                    getMyField(
+                        hintText: 'Description', controller: desccontroller),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 40),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            width: 130,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                JournalLog jLog = JournalLog(
+                                    logTitle: namecontroller.text,
+                                    logDate: datecontroller.text,
+                                    logDescription: desccontroller.text);
+                                
+                                addLogAndNavigate(jLog, context);
+                              },
+                              child: const Text('Add'),
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all<Color>(
+                                    Colors.green.shade400),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    side:
+                                        BorderSide(color: Colors.green, width: 2.0),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 130,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                namecontroller.text = '';
+                                datecontroller.text = '';
+                                desccontroller.text = '';
+                              },
+                              child: const Text('Reset'),
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(Colors.blue.shade300),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                      side:
+                                          BorderSide(color: Colors.blue, width: 2.0),
+                                    ),
+                                  ),
+                                ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )),
+            )
+          ],
+        ),
+        bottomNavigationBar: BottomIconsWidget());
   }
-
-
 
   Widget getMyField(
       {required String hintText, required TextEditingController controller}) {

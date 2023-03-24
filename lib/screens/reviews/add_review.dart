@@ -34,51 +34,86 @@ class _ReviewCreateState extends State<ReviewCreate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       body: Column(
         children:  [
           const ScreenHeader(title: "Create a review",),
-          Expanded(child: SingleChildScrollView(
-            child: Column(
-              children: [
-                getMyField(hintText: 'Resturant name', controller: restNamecontroller),
-                getMyField(hintText: 'Review Header', controller: reviewNamecontroller),
-                getMyField(hintText: 'Review description', controller: reviewDesccontroller),
-                DatePickerFormField(hintText: "Visited at", textEditingController: reviewDatecontroller),
-                EmojiButtonWidget(
-                            iconData1: Icons.thumb_up,
-                            iconData2: Icons.thumb_down,
-                            controller: _controller,
-                          ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: (){
-                        Review myReview = Review(restName: restNamecontroller.text,reviewTitle: reviewNamecontroller.text, reviewDate: reviewDatecontroller.text, reactionRange: int.parse(_controller.text), reviewDesc: reviewDesccontroller.text);
-                        addReviewAndNavigate(myReview, context);
-
-                    }, 
-                    child: const Text('Add'),),    
-                    
-                    ElevatedButton(
-                      onPressed: (){
-                        restNamecontroller.text = '';
-                        reviewNamecontroller.text = '';
-                        reviewDatecontroller.text = '';
-                        reviewDesccontroller.text = '';
-                        _controller.text = '';
-                      
-                    }, 
-                    child: const Text('Reset'),),   
-                    
-                                  ],
-                )
-
-
-
-              ],
-            ),
-          ))
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Expanded(child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  getMyField(hintText: 'Resturant name', controller: restNamecontroller),
+                  getMyField(hintText: 'Review Header', controller: reviewNamecontroller),
+                  getMyField(hintText: 'Review description', controller: reviewDesccontroller),
+                  DatePickerFormField(hintText: "Visited at", textEditingController: reviewDatecontroller),
+                  EmojiButtonWidget(
+                              iconData1: Icons.thumb_up,
+                              iconData2: Icons.thumb_down,
+                              controller: _controller,
+                            ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 40),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          width: 130,
+                          child: ElevatedButton(
+                            onPressed: (){
+                              Review myReview = Review(restName: restNamecontroller.text,reviewTitle: reviewNamecontroller.text, reviewDate: reviewDatecontroller.text, reactionRange: int.parse(_controller.text), reviewDesc: reviewDesccontroller.text);
+                              addReviewAndNavigate(myReview, context);
+                        
+                          }, 
+                          child: const Text('Add'),style: ButtonStyle(
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(Colors.green.shade400),
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20.0),
+                                        side:
+                                            BorderSide(color: Colors.green, width: 2.0),
+                                      ),
+                                    ),
+                                  ),),
+                        ),    
+                        
+                        Container(
+                          width: 130,
+                          child: ElevatedButton(
+                            onPressed: (){
+                              restNamecontroller.text = '';
+                              reviewNamecontroller.text = '';
+                              reviewDatecontroller.text = '';
+                              reviewDesccontroller.text = '';
+                              _controller.text = '';
+                            
+                          }, 
+                          child: const Text('Reset'),style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(Colors.blue.shade300),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                      side:
+                                          BorderSide(color: Colors.blue, width: 2.0),
+                                    ),
+                                  ),
+                                ),),
+                        ),   
+                        
+                                      ],
+                    ),
+                  )
+          
+          
+          
+                ],
+              ),
+            )),
+          )
         ],
       ),
             bottomNavigationBar: BottomIconsWidget(),

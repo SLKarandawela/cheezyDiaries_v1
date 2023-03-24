@@ -74,6 +74,10 @@ flutter:
       - assets/images/pizza.png
       - assets/images/health.png
       - assets/images/writing.png
+      - assets/images/cooking.png
+      - assets/images/cuisine.png
+      - assets/images/fitness.png
+      
 
       
 

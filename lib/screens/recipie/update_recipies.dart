@@ -10,6 +10,8 @@ import '../../widgets/bottom_icons.dart';
 import '../../widgets/header.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../../widgets/loader_navigator.dart';
+
 class RecipieUpdate extends StatelessWidget {
   final Recipie recipieItem;
 
@@ -43,7 +45,11 @@ class RecipieUpdate extends StatelessWidget {
                         Recipie updatedRecipie = Recipie(id: recipieItem.id,recipieTitle: resNamecontroller.text, ingrediants: resIngcontroller.text, resDescription: resDesccontroller.text);
                         final CollectionReference = FirebaseFirestore.instance.collection('recipie');
                         CollectionReference.doc(updatedRecipie.id).update(updatedRecipie.toJson()).whenComplete((){
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> RecipieList()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> LoadingPage(
+              nextPage: RecipieList(),
+              imageAsset: 'assets/images/health.png',
+              loadingText: 'Updating a recipie...',
+            ),));
                         });
 
                     }, 
