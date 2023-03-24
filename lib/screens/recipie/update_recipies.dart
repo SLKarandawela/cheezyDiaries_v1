@@ -26,7 +26,7 @@ class RecipieUpdate extends StatelessWidget {
     return Scaffold(
       body: Column(
         children:  [
-          const ScreenHeader(),
+          const ScreenHeader(title: "update recipie",),
           Expanded(child: SingleChildScrollView(
             child: Column(
               children: [

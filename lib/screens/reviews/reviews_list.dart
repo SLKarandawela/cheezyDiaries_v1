@@ -10,110 +10,141 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ReviewList extends StatelessWidget {
+import '../../widgets/bottom_icons.dart';
 
-  final CollectionReference  _reference = FirebaseFirestore.instance.collection('review');
+class ReviewList extends StatelessWidget {
+  final CollectionReference _reference =
+      FirebaseFirestore.instance.collection('review');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    body: Column(
-      children: [
-        const ScreenHeader(),
-        FutureBuilder<QuerySnapshot>(
-          future: _reference.get(),
-          builder: (context, snapshot) {
-            if(snapshot.hasError){
-              return const Center(child: Text("oops! something went wrong"),);
-            }
-
-            if(snapshot.hasData){
-              QuerySnapshot querySnapshot = snapshot.data!;
-              List<QueryDocumentSnapshot> documents = querySnapshot.docs;
-              // List<Review> reviews = documents.map((e) => JournalLog(id:e['id'],logTitle: e['logTitle'], logDate: e['logDate'], logDescription: e['logDescription'])).toList();
-              List<Review> reviews = documents.map((e) => 
-              Review(
-                id:e['id'],
-                restName: e['restName'],
-                 reviewTitle: e['reviewTitle'],
-                  reviewDate: e['reviewDate'],
-                   reactionRange: e['reactionRange'],
-                    reviewDesc: e['reviewDesc'])).toList();
-              return _getBody(reviews);
-            }
-            else{
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-          // child: _getBody()
+      body: Column(
+        children: [
+          const ScreenHeader(
+            title: "Review List",
           ),
-        
-        
-      ],
-    ),
+          FutureBuilder<QuerySnapshot>(
+            future: _reference.get(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return const Center(
+                  child: Text("oops! something went wrong"),
+                );
+              }
 
-    floatingActionButton: FloatingActionButton(onPressed: ((){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const ReviewCreate(),));
-    })),
-  );
-      
+              if (snapshot.hasData) {
+                QuerySnapshot querySnapshot = snapshot.data!;
+                List<QueryDocumentSnapshot> documents = querySnapshot.docs;
+                // List<Review> reviews = documents.map((e) => JournalLog(id:e['id'],logTitle: e['logTitle'], logDate: e['logDate'], logDescription: e['logDescription'])).toList();
+                List<Review> reviews = documents
+                    .map((e) => Review(
+                        id: e['id'],
+                        restName: e['restName'],
+                        reviewTitle: e['reviewTitle'],
+                        reviewDate: e['reviewDate'],
+                        reactionRange: e['reactionRange'],
+                        reviewDesc: e['reviewDesc']))
+                    .toList();
+                return _getBody(reviews);
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+            // child: _getBody()
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ReviewCreate(),
+              ));
+        },
+        child: Icon(Icons.add),
+      ),
+      bottomNavigationBar: BottomIconsWidget(),
+    );
   }
-  
-Widget _getBody(reviews) {
-  return Expanded(
-          child: ListView.builder(
-            itemCount: reviews.length,
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                decoration: BoxDecoration(
+
+   TextStyle headerTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
+  Widget _getBody(reviews) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: ListView.builder(
+          itemCount: reviews.length,
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                    10), // Add the same border radius to the container
+                boxShadow: [
+                  BoxShadow(
+                    color:
+                        Colors.grey.withOpacity(0.5), // Choose your desired color
+                    spreadRadius: 2, // The spread radius of the shadow
+                    blurRadius: 5, // The blur radius of the shadow
+                    offset: Offset(0, 3), // The position of the shadow
+                  ),
+                ],
+              ),
+              child: Card(
+                elevation: 4, // This will add a default shadow
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(
-                      10), // Add the same border radius to the container
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey
-                          .withOpacity(0.5), // Choose your desired color
-                      spreadRadius: 2, // The spread radius of the shadow
-                      blurRadius: 5, // The blur radius of the shadow
-                      offset: Offset(0, 3), // The position of the shadow
-                    ),
-                  ],
+                      10), // Add a border radius to the card
                 ),
-                child: Card(
-                  elevation: 4, // This will add a default shadow
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                            10), // Add a border radius to the card
-                      ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: ListTile(
                     title: Text(reviews[index].restName),
                     leading: const CircleAvatar(
                       radius: 25,
                     ),
                     trailing: SizedBox(
-                      width: 60,
-                      child: Row(
-                      children: [
-                        InkWell(child: Icon(Icons.edit),onTap: () {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) =>
-                             ReviewUpdate(myReview: reviews[index],)));
-                        },),
-                        InkWell(child: Icon(Icons.delete),onTap: () {
-                          _reference.doc(reviews[index].id).delete();
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> ReviewList()));
-                          
-                        },)
-                      ],
-                    )),
+                        width: 60,
+                        child: Row(
+                          children: [
+                            InkWell(
+                              child: Icon(Icons.edit, color: Colors.blue.shade400,),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ReviewUpdate(
+                                              myReview: reviews[index],
+                                            )));
+                              },
+                            ),
+                            InkWell(
+                              child: Icon(Icons.delete, color: Colors.red,),
+                              onTap: () {
+                                _reference.doc(reviews[index].id).delete();
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ReviewList()));
+                              },
+                            )
+                          ],
+                        )),
                   ),
                 ),
               ),
             ),
           ),
-
-    
-        );
-}
+        ),
+      ),
+    );
+  }
 }

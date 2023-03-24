@@ -8,6 +8,7 @@ import 'package:cheezy_diaries/widgets/date_picker.dart';
 import 'package:cheezy_diaries/widgets/location_picker.dart';
 import 'package:cheezy_diaries/widgets/numberInp.dart';
 import 'package:flutter/material.dart';
+import '../../widgets/bottom_icons.dart';
 import '../../widgets/header.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -42,7 +43,7 @@ class WorkoutEdit extends StatelessWidget {
     return Scaffold(
       body: Column(
         children:  [
-          const ScreenHeader(),
+          const ScreenHeader(title: "Edit a workout log",),
           Expanded(child: SingleChildScrollView(
             child: Column(
               children: [
@@ -95,7 +96,7 @@ class WorkoutEdit extends StatelessWidget {
           ))
         ],
       ),
-      
+      bottomNavigationBar: BottomIconsWidget(),
     );
   }
 

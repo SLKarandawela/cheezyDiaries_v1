@@ -32,7 +32,7 @@ class _ReviewCreateState extends State<ReviewCreate> {
     return Scaffold(
       body: Column(
         children:  [
-          const ScreenHeader(),
+          const ScreenHeader(title: "Create a review",),
           Expanded(child: SingleChildScrollView(
             child: Column(
               children: [

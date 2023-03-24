@@ -31,7 +31,7 @@ class JournalUpdate extends StatelessWidget {
     return Scaffold(
       body: Column(
         children:  [
-          const ScreenHeader(),
+          const ScreenHeader(title: "Update log",),
           Expanded(child: SingleChildScrollView(
             child: Column(
               children: [

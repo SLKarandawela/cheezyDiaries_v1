@@ -40,7 +40,7 @@ class ReviewUpdate extends StatelessWidget {
     return Scaffold(
       body: Column(
         children:  [
-          const ScreenHeader(),
+          const ScreenHeader(title: "Update a review",),
           Expanded(child: SingleChildScrollView(
             child: Column(
               children: [

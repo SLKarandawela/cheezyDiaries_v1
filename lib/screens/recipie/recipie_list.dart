@@ -20,7 +20,7 @@ class RecipieList extends StatelessWidget {
     return Scaffold(
     body: Column(
       children: [
-        const ScreenHeader(),
+        const ScreenHeader(title: "My Recipies"),
         FutureBuilder<QuerySnapshot>(
           future: _reference.get(),
           builder: (context, snapshot) {

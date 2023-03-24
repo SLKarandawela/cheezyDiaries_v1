@@ -1,34 +1,75 @@
 import 'package:flutter/material.dart';
 
 class ScreenHeader extends StatelessWidget {
-  const ScreenHeader({Key? key}) : super(key: key);
+   final String title;
+
+  const ScreenHeader({Key? key, required this.title}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 170,
-      decoration: BoxDecoration(color: Colors.blue.shade800),
-      child: Row(children: [
-        IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            color: Colors.white,
+      height: 130,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Colors.blue.shade800, Colors.blue.shade500],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Image.asset(
+                  'assets/images/health.png',
+                  height: 48,
+                  width: 48,
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Cheezy Diaries",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                  Text(
+                    "A diary of all things cheesy",
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 16,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-        Column(children: const [
+          SizedBox(height: 10),
           Padding(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(top: 8),
             child: Text(
-              "Cheezy Diaries",
+              title,
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold),
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight:FontWeight.bold,
+                fontFamily: 'Montserrat',
+              ),
             ),
           ),
-        ]),
-      ]),
+        ],
+      ),
     );
   }
+
 }

@@ -72,6 +72,8 @@ flutter:
       - assets/images/schedule.png
       - assets/images/fry.png
       - assets/images/pizza.png
+      - assets/images/health.png
+
 
 
   #   - images/a_dot_burr.jpeg

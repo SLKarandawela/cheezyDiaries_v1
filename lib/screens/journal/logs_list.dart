@@ -1,6 +1,7 @@
 import 'package:cheezy_diaries/model/journal/my_journal.dart';
 import 'package:cheezy_diaries/screens/journal/add_journal.dart';
 import 'package:cheezy_diaries/screens/journal/update_journal.dart';
+import 'package:cheezy_diaries/widgets/bottom_icons.dart';
 import 'package:cheezy_diaries/widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -28,7 +29,7 @@ class LogList extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const ScreenHeader(),
+          const ScreenHeader(title: "My logs"),
           FutureBuilder<QuerySnapshot>(
             future: _reference.get(),
             builder: (context, snapshot) {
@@ -70,6 +71,7 @@ class LogList extends StatelessWidget {
         },
         child: Icon(Icons.add),
       ),
+      bottomNavigationBar: BottomIconsWidget(),
     );
   }
 
@@ -174,7 +176,9 @@ class LogList extends StatelessWidget {
             ),
           ),
         ),
+        
       ),
+      
       
     );
     

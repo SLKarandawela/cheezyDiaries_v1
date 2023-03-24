@@ -25,7 +25,7 @@ class _RecipieCreateState extends State<RecipieCreate> {
     return Scaffold(
       body: Column(
         children:  [
-          const ScreenHeader(),
+          const ScreenHeader(title: "Create new recipie",),
           Expanded(child: SingleChildScrollView(
             child: Column(
               children: [
