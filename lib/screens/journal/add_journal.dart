@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import '../../widgets/header.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../../widgets/loader_navigator.dart';
+
 class JournalCreate extends StatefulWidget {
   const JournalCreate({super.key});
 
@@ -106,7 +108,11 @@ class _JournalCreateState extends State<JournalCreate> {
       Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => LogList(),
+            builder: (context) => LoadingPage(
+              nextPage: LogList(),
+              imageAsset: 'assets/images/health.png',
+              loadingText: 'Creating a log...',
+            ),
           ));
     });
   }

@@ -3,14 +3,18 @@ import 'package:cheezy_diaries/model/journal/my_journal.dart';
 import 'package:cheezy_diaries/model/recipies/recipies.dart';
 import 'package:cheezy_diaries/model/workout/workouts.dart';
 import 'package:cheezy_diaries/screens/journal/logs_list.dart';
+import 'package:cheezy_diaries/screens/reviews/reviews_list.dart';
 import 'package:cheezy_diaries/widgets/date_picker.dart';
 import 'package:cheezy_diaries/widgets/location_picker.dart';
 import 'package:cheezy_diaries/widgets/numberInp.dart';
 import 'package:flutter/material.dart';
 import '../../model/review/reviews.dart';
+import '../../widgets/bottom_icons.dart';
 import '../../widgets/emoji_inp.dart';
 import '../../widgets/header.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../widgets/loader_navigator.dart';
 
 class ReviewCreate extends StatefulWidget {
   const ReviewCreate({super.key});
@@ -77,7 +81,8 @@ class _ReviewCreateState extends State<ReviewCreate> {
           ))
         ],
       ),
-      
+            bottomNavigationBar: BottomIconsWidget(),
+
     );
   }
 
@@ -101,7 +106,11 @@ class _ReviewCreateState extends State<ReviewCreate> {
     mReview.id = wkRef.id;
     final data = mReview.toJson();
     wkRef.set(data).whenComplete((){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> LogList(),));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> LoadingPage(
+              nextPage: ReviewList(),
+              imageAsset: 'assets/images/health.png',
+              loadingText: 'Creating a review...',
+            ),));
     });
   }
 

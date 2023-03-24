@@ -119,7 +119,7 @@ class LogList extends StatelessWidget {
                     subtitle: Text(journalLogs[index].logDate),
                     leading: const CircleAvatar(
                       radius: 25,
-                      backgroundImage: AssetImage('assets/images/fry.png'),
+                      backgroundImage: AssetImage('assets/images/writing.png'),
                     ),
                     trailing: SizedBox(
                         width: 60,

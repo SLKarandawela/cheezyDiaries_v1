@@ -1,5 +1,6 @@
 import 'package:cheezy_diaries/screens/home_page.dart';
 import 'package:cheezy_diaries/screens/journal/logs_list.dart';
+import 'package:cheezy_diaries/screens/recipie/recipie_list.dart';
 import 'package:cheezy_diaries/screens/reviews/reviews_list.dart';
 import 'package:cheezy_diaries/screens/workout/workout_list.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,13 @@ class BottomIconsWidget extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.exit_to_app),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>  RecipieList(),
+                  ));
+            },
           ),
         ],
       ),

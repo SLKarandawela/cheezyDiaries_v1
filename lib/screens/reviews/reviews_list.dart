@@ -11,6 +11,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../widgets/bottom_icons.dart';
+import '../../widgets/confirmation_dialog.dart';
 
 class ReviewList extends StatelessWidget {
   final CollectionReference _reference =
@@ -70,7 +71,7 @@ class ReviewList extends StatelessWidget {
     );
   }
 
-   TextStyle headerTextStyle = TextStyle(
+  TextStyle headerTextStyle = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.bold,
     color: Colors.black,
@@ -90,8 +91,8 @@ class ReviewList extends StatelessWidget {
                     10), // Add the same border radius to the container
                 boxShadow: [
                   BoxShadow(
-                    color:
-                        Colors.grey.withOpacity(0.5), // Choose your desired color
+                    color: Colors.grey
+                        .withOpacity(0.5), // Choose your desired color
                     spreadRadius: 2, // The spread radius of the shadow
                     blurRadius: 5, // The blur radius of the shadow
                     offset: Offset(0, 3), // The position of the shadow
@@ -107,7 +108,9 @@ class ReviewList extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    title: Text(reviews[index].restName),
+                    title:
+                        Text(reviews[index].restName, style: headerTextStyle),
+                    subtitle: Text(reviews[index].reviewTitle),
                     leading: const CircleAvatar(
                       radius: 25,
                     ),
@@ -116,7 +119,10 @@ class ReviewList extends StatelessWidget {
                         child: Row(
                           children: [
                             InkWell(
-                              child: Icon(Icons.edit, color: Colors.blue.shade400,),
+                              child: Icon(
+                                Icons.edit,
+                                color: Colors.blue.shade400,
+                              ),
                               onTap: () {
                                 Navigator.push(
                                     context,
@@ -127,13 +133,32 @@ class ReviewList extends StatelessWidget {
                               },
                             ),
                             InkWell(
-                              child: Icon(Icons.delete, color: Colors.red,),
+                              child: Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
                               onTap: () {
-                                _reference.doc(reviews[index].id).delete();
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ReviewList()));
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return ConfirmationDialog(
+                                      title: 'Confirm Deletion',
+                                      message:
+                                          'Are you sure you want to delete this item?',
+                                      onConfirm: () {
+                                        _reference
+                                            .doc(reviews[index].id)
+                                            .delete();
+                                        Navigator.of(context)
+                                            .pushAndRemoveUntil(
+                                          MaterialPageRoute(
+                                              builder: (context) => ReviewList()),
+                                          (Route<dynamic> route) => false,
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
                               },
                             )
                           ],
