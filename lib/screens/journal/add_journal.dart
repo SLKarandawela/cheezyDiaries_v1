@@ -98,3 +98,26 @@ logDate: datecontroller.text,
 logDescription: desccontroller.text);
 
 addLogAndNavigate(jLog, context);
+BorderSide(color: Colors.green, width: 2.0),
+
+),
+
+),
+
+),
+
+),
+
+),
+
+Container(
+
+width: 130,
+
+child: ElevatedButton(
+
+onPressed: () {
+
+namecontroller.text = '';
+
+datecontroller.text = '';
