@@ -184,3 +184,20 @@ offset: Offset(0, 3), // The position of the shadow
 child: Card(
 
 elevation: 4, // This will add a default shadow
+shape: RoundedRectangleBorder(
+
+borderRadius: BorderRadius.circular(
+
+10), // Add a border radius to the card
+
+),
+
+child: Padding(
+
+padding: const EdgeInsets.all(8.0),
+
+child: ListTile(
+
+title: Text(
+
+journalLogs[index].logTitle,
