@@ -222,3 +222,14 @@ Navigator.push(
 context,
 
 MaterialPageRoute(
+  builder: (context) => LoadingPage(
+
+nextPage: LogList(),
+
+imageAsset: 'assets/images/health.png',
+
+loadingText: 'Creating a log...',
+
+),
+
+));
