@@ -12,6 +12,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../widgets/loader_navigator.dart';
 
+//Recipe update
 class RecipieUpdate extends StatelessWidget {
   final Recipie recipieItem;
 
@@ -124,6 +125,7 @@ class RecipieUpdate extends StatelessWidget {
       ),
     );
   }
+
 
   void addRecipieAndNavigate(Recipie mRecipie, BuildContext context) {
     // reference to firebase
