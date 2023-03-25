@@ -117,3 +117,34 @@ MaterialPageRoute(
 builder: (context) => const JournalCreate(),
 
 ));
+},
+
+child: Icon(Icons.add),
+
+),
+
+bottomNavigationBar: BottomIconsWidget(),
+
+);
+
+}
+
+TextStyle headerTextStyle = TextStyle(
+
+fontSize: 18,
+
+fontWeight: FontWeight.bold,
+
+color: Colors.black,
+
+);
+
+Widget _getBody(journalLogs) {
+
+return Expanded(
+
+child: Padding(
+
+padding: const EdgeInsets.only(top: 20.0),
+
+child: ListView.builder(
