@@ -224,3 +224,28 @@ child: Row(
 children: [
 
 InkWell(
+  child: Icon(
+
+Icons.preview,
+
+color: Colors.blue.shade400,
+
+),
+
+onTap: () {
+
+Navigator.push(
+
+context,
+
+MaterialPageRoute(
+
+builder: (context) => JournalUpdate(
+
+journalLog: journalLogs[index],
+
+)));
+
+},
+
+),
