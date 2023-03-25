@@ -138,3 +138,41 @@ shape: MaterialStateProperty.all<
 RoundedRectangleBorder>(
 
 RoundedRectangleBorder(
+
+  borderRadius: BorderRadius.circular(20.0),
+
+side:
+
+BorderSide(color: Colors.blue, width: 2.0),
+
+),
+
+),
+
+),
+
+),
+
+),
+
+],
+
+),
+
+)
+
+],
+
+),
+
+)),
+
+)
+
+],
+
+),
+
+bottomNavigationBar: BottomIconsWidget());
+
+}
