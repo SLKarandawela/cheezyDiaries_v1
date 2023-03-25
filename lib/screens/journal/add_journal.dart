@@ -77,3 +77,24 @@ Padding(
 padding: const EdgeInsets.only(top: 40),
 
 child: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+children: [
+
+Container(
+
+width: 130,
+
+child: ElevatedButton(
+
+onPressed: () {
+
+JournalLog jLog = JournalLog(
+
+logTitle: namecontroller.text,
+
+logDate: datecontroller.text,
+
+logDescription: desccontroller.text);
+
+addLogAndNavigate(jLog, context);
