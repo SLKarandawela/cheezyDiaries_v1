@@ -1,3 +1,4 @@
+//imports
 import 'package:cheezy_diaries/model/journal/my_journal.dart';
 import 'package:cheezy_diaries/model/recipies/recipies.dart';
 import 'package:cheezy_diaries/screens/journal/add_journal.dart';
@@ -13,6 +14,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../widgets/bottom_icons.dart';
 import '../../widgets/confirmation_dialog.dart';
 
+//Recipe List
 class RecipieList extends StatelessWidget {
   final CollectionReference _reference =
       FirebaseFirestore.instance.collection('recipie');
