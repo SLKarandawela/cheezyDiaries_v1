@@ -1,4 +1,3 @@
-//imports
 import 'package:cheezy_diaries/model/journal/my_journal.dart';
 import 'package:cheezy_diaries/model/recipies/recipies.dart';
 import 'package:cheezy_diaries/screens/journal/add_journal.dart';
@@ -159,3 +158,4 @@ class RecipieList extends StatelessWidget {
     );
   }
 }
+

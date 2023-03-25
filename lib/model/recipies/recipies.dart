@@ -1,4 +1,3 @@
-//Imports
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
@@ -34,3 +33,4 @@ class Recipie {
         "resDescription": resDescription,
     };
 }
+

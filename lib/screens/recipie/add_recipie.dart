@@ -1,4 +1,3 @@
-//imports
 import 'dart:math';
 import 'package:cheezy_diaries/model/journal/my_journal.dart';
 import 'package:cheezy_diaries/model/recipies/recipies.dart';
@@ -145,3 +144,4 @@ class _RecipieCreateState extends State<RecipieCreate> {
     });
   }
 }
+
