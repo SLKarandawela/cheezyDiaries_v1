@@ -45,7 +45,8 @@ class ReviewList extends StatelessWidget {
                         reviewDate: e['reviewDate'],
                         reactionRange: e['reactionRange'],
                         reviewDesc: e['reviewDesc']))
-                    .toList();
+                    .toList()
+                    ..sort((a, b) => b.reviewDate.compareTo(a.reviewDate));
                 return _getBody(reviews);
               } else {
                 return Center(

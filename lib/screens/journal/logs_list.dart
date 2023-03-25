@@ -127,7 +127,7 @@ class LogList extends StatelessWidget {
                           children: [
                             InkWell(
                               child: Icon(
-                                Icons.edit,
+                                Icons.preview,
                                 color: Colors.blue.shade400,
                               ),
                               onTap: () {

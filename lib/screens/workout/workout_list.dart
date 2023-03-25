@@ -11,6 +11,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../widgets/bottom_icons.dart';
+import '../../widgets/confirmation_dialog.dart';
 
 class WorkoutList extends StatelessWidget {
   final CollectionReference _reference =
@@ -45,7 +46,8 @@ class WorkoutList extends StatelessWidget {
                         jumpingJackCount: e['jumpingJackCount'],
                         pushUpCount: e['pushUpCount'],
                         squatsCount: e['squatsCount']))
-                    .toList();
+                    .toList()
+                    ..sort((a, b) => b.wDate.compareTo(a.wDate));
                 return _getBody(workouts);
               } else {
                 return Center(
@@ -70,6 +72,13 @@ class WorkoutList extends StatelessWidget {
       bottomNavigationBar: BottomIconsWidget(),
     );
   }
+
+    TextStyle headerTextStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
+
 
   Widget _getBody(workouts) {
     return Expanded(
@@ -102,9 +111,11 @@ class WorkoutList extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    title: Text(workouts[index].workoutFeedback),
+                    title: Text(workouts[index].workoutFeedback, style: headerTextStyle),
+                    subtitle: Text(workouts[index].wDate),
                     leading: const CircleAvatar(
                       radius: 25,
+                      backgroundImage: AssetImage('assets/images/fitness.png'),
                     ),
                     trailing: SizedBox(
                         width: 60,
@@ -130,11 +141,27 @@ class WorkoutList extends StatelessWidget {
                                 color: Colors.red,
                               ),
                               onTap: () {
-                                _reference.doc(workouts[index].id).delete();
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => WorkoutList()));
+                               showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return ConfirmationDialog(
+                                      title: 'Confirm Deletion',
+                                      message:
+                                          'Are you sure you want to delete this item?',
+                                      onConfirm: () {
+                                        _reference
+                                            .doc(workouts[index].id)
+                                            .delete();
+                                        Navigator.of(context)
+                                            .pushAndRemoveUntil(
+                                          MaterialPageRoute(
+                                              builder: (context) => WorkoutList()),
+                                          (Route<dynamic> route) => false,
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
                               },
                             )
                           ],

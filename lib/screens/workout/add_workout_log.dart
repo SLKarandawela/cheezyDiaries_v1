@@ -34,68 +34,103 @@ class _WorkoutCreateState extends State<WorkoutCreate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       body: Column(
         children: [
           const ScreenHeader(
             title: "Create a workout log",
           ),
-          Expanded(
-              child: SingleChildScrollView(
-            child: Column(
-              children: [
-                getMyField(
-                    hintText: 'Workout feedback',
-                    controller: workNamecontroller),
-                getMyField(
-                    hintText: 'Workout description',
-                    controller: workDesccontroller),
-                DatePickerFormField(
-                    hintText: "Workout date",
-                    textEditingController: workDatecontroller),
-                PositiveIntegerField(
-                    hintText: 'Push ups',
-                    textEditingController: pushUpCountcontroller),
-                PositiveIntegerField(
-                    hintText: 'Jumping jacks',
-                    textEditingController: jumpingJackCountcontroller),
-                PositiveIntegerField(
-                    hintText: 'Squats',
-                    textEditingController: squatsCountCountcontroller),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Recipie myRecipie = Recipie(logTitle: namecontroller.text, logDate: datecontroller.text, logDescription: desccontroller.text );
-                        Workout myWorkout = Workout(
-                            workoutFeedback: workNamecontroller.text,
-                            workoutComment: workDesccontroller.text,
-                            wDate: workDatecontroller.text,
-                            jumpingJackCount:
-                                int.parse(jumpingJackCountcontroller.text),
-                            pushUpCount: int.parse(pushUpCountcontroller.text),
-                            squatsCount:
-                                int.parse(squatsCountCountcontroller.text));
-                        addWorkoutAndNavigate(myWorkout, context);
-                      },
-                      child: const Text('Add'),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Expanded(
+                child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  getMyField(
+                      hintText: 'Workout feedback',
+                      controller: workNamecontroller),
+                  getMyField(
+                      hintText: 'Workout description',
+                      controller: workDesccontroller),
+                  DatePickerFormField(
+                      hintText: "Workout date",
+                      textEditingController: workDatecontroller),
+                  PositiveIntegerField(
+                      hintText: 'Push ups',
+                      textEditingController: pushUpCountcontroller),
+                  PositiveIntegerField(
+                      hintText: 'Jumping jacks',
+                      textEditingController: jumpingJackCountcontroller),
+                  PositiveIntegerField(
+                      hintText: 'Squats',
+                      textEditingController: squatsCountCountcontroller),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          width: 130,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              // Recipie myRecipie = Recipie(logTitle: namecontroller.text, logDate: datecontroller.text, logDescription: desccontroller.text );
+                              Workout myWorkout = Workout(
+                                  workoutFeedback: workNamecontroller.text,
+                                  workoutComment: workDesccontroller.text,
+                                  wDate: workDatecontroller.text,
+                                  jumpingJackCount:
+                                      int.parse(jumpingJackCountcontroller.text),
+                                  pushUpCount: int.parse(pushUpCountcontroller.text),
+                                  squatsCount:
+                                      int.parse(squatsCountCountcontroller.text));
+                              addWorkoutAndNavigate(myWorkout, context);
+                            },
+                            child: const Text('Add'),
+                            style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all<Color>(
+                                        Colors.green.shade400),
+                                    shape:
+                                        MaterialStateProperty.all<RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20.0),
+                                        side: BorderSide(color: Colors.green, width: 2.0),
+                                      ),
+                                    ),
+                                  ),
+                          ),
+                        ),
+                        Container(
+                          width: 130,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              workNamecontroller.text = '';
+                              workDesccontroller.text = '';
+                              workDatecontroller.text = '';
+                              pushUpCountcontroller.text = '';
+                              jumpingJackCountcontroller.text = '';
+                              squatsCountCountcontroller.text = '';
+                            },
+                            child: const Text('Reset'),
+                            style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all<Color>(
+                                      Colors.blue.shade300),
+                                  shape:
+                                      MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                      side: BorderSide(color: Colors.blue, width: 2.0),
+                                    ),
+                                  ),
+                                ),
+                          ),
+                        ),
+                      ],
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        workNamecontroller.text = '';
-                        workDesccontroller.text = '';
-                        workDatecontroller.text = '';
-                        pushUpCountcontroller.text = '';
-                        jumpingJackCountcontroller.text = '';
-                        squatsCountCountcontroller.text = '';
-                      },
-                      child: const Text('Reset'),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ))
+                  )
+                ],
+              ),
+            )),
+          )
         ],
       ),
       bottomNavigationBar: BottomIconsWidget(),
