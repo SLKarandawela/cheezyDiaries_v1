@@ -278,3 +278,54 @@ message:
 onConfirm: () {
 
 _reference
+.doc(journalLogs[index].id)
+
+.delete();
+
+Navigator.of(context)
+
+.pushAndRemoveUntil(
+
+MaterialPageRoute(
+
+builder: (context) => LogList()),
+
+(Route<dynamic> route) => false,
+
+);
+
+},
+
+);
+
+},
+
+);
+
+},
+
+),
+
+],
+
+)),
+
+),
+
+),
+
+),
+
+),
+
+),
+
+),
+
+),
+
+);
+
+}
+
+}
