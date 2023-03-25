@@ -20,3 +20,4 @@ class LogList extends StatelessWidget {
 final CollectionReference _reference =
 
 FirebaseFirestore.instance.collection('journal');
+// ];
