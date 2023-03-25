@@ -37,3 +37,15 @@ class Review {
         reactionRange: json["reactionRange"]
 
     );
+
+
+    Map<String, dynamic> toJson() => {
+        "id": id,
+        "restName": restName,
+        "reviewTitle": reviewTitle,
+        "reviewDate": reviewDate,
+        "reviewDesc":reviewDesc,
+        "reactionRange": reactionRange
+
+    };
+}
