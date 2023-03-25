@@ -150,3 +150,20 @@ loadingText: 'updating a log...',
 ),
 
 ));
+});
+
+},
+
+child: const Text('Update'),
+
+style: ButtonStyle(
+
+backgroundColor:
+
+MaterialStateProperty.all<Color>(Colors.green.shade400),
+
+shape: MaterialStateProperty.all<
+
+RoundedRectangleBorder>(
+
+RoundedRectangleBorder(
