@@ -1,6 +1,8 @@
 import 'package:cheezy_diaries/widgets/cardNav.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/header.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -15,23 +17,15 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[100],
       body: SafeArea(
         child: Column(children: [
-          Container(
-            height: 170,
-            decoration: BoxDecoration(color: Colors.blue.shade800),
-            child: Row(children: [
-              Column(children: const [
-                Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Text("Cheezy Diaries", style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold) ,),
-                ),
-              ],)
-            ]),
-          ),
+          ScreenHeader(title: "Home"),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(20.0),
             child: Container(
               height: 500,
-              child: Dashboard()),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: Dashboard(),
+              )),
           )
         ],),
       ),
