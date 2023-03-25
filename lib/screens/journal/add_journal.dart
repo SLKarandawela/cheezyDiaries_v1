@@ -11,3 +11,12 @@ import 'package:cheezy_diaries/widgets/date_picker.dart';
 import 'package:cheezy_diaries/widgets/location_picker.dart';
 
 import 'package:flutter/material.dart';
+import '../../widgets/header.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../widgets/loader_navigator.dart';
+
+class JournalCreate extends StatefulWidget {
+
+const JournalCreate({super.key});
