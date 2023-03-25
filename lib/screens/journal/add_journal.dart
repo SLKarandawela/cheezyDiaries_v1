@@ -33,3 +33,18 @@ final TextEditingController namecontroller = TextEditingController();
 final TextEditingController datecontroller = TextEditingController();
 
 final TextEditingController desccontroller = TextEditingController();
+@override
+
+Widget build(BuildContext context) {
+
+return Scaffold(
+
+body: Column(
+
+children: [
+
+const ScreenHeader(
+
+title: "Create new log",
+
+),
