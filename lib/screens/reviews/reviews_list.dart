@@ -61,4 +61,37 @@ class ReviewList extends StatelessWidget {
   }
 
 
-  
+  Widget _getBody(reviews) {
+  return Expanded(
+          child: ListView.builder(
+            itemCount: reviews.length,
+            itemBuilder: (context, index) => Card(
+              child: ListTile(
+                title: Text(reviews[index].restName),
+                leading: const CircleAvatar(
+                  radius: 25,
+                ),
+                trailing: SizedBox(
+                  width: 60,
+                  child: Row(
+                  children: [
+                    InkWell(child: Icon(Icons.edit),onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) =>
+                         ReviewUpdate(myReview: reviews[index],)));
+                    },),
+                    InkWell(child: Icon(Icons.delete),onTap: () {
+                      _reference.doc(reviews[index].id).delete();
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> ReviewList()));
+                      
+                    },)
+                  ],
+                )),
+              ),
+            ),
+          ),
+
+    
+        );
+}
+}
