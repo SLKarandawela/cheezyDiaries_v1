@@ -148,3 +148,20 @@ child: Padding(
 padding: const EdgeInsets.only(top: 20.0),
 
 child: ListView.builder(
+  itemCount: journalLogs.length,
+
+itemBuilder: (context, index) => Padding(
+
+padding: const EdgeInsets.all(6.0),
+
+child: Container(
+
+decoration: BoxDecoration(
+
+borderRadius: BorderRadius.circular(
+
+10), // Add the same border radius to the container
+
+boxShadow: [
+
+BoxShadow(
