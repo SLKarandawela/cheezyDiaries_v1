@@ -48,3 +48,18 @@ const ScreenHeader(
 title: "Create new log",
 
 ),
+Padding(
+
+padding: const EdgeInsets.all(20.0),
+
+child: Expanded(
+
+child: SingleChildScrollView(
+
+child: Column(
+
+children: [
+
+getMyField(
+
+hintText: 'Overall Memory', controller: namecontroller),
