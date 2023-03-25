@@ -167,3 +167,118 @@ shape: MaterialStateProperty.all<
 RoundedRectangleBorder>(
 
 RoundedRectangleBorder(
+  borderRadius: BorderRadius.circular(20.0),
+
+side:
+
+BorderSide(color: Colors.green, width: 2.0),
+
+),
+
+),
+
+),
+
+),
+
+),
+
+Container(
+
+width: 130,
+
+child: ElevatedButton(
+
+onPressed: () {
+
+namecontroller.text = '';
+
+datecontroller.text = '';
+
+desccontroller.text = '';
+
+},
+
+child: const Text('Reset'),
+
+style: ButtonStyle(
+
+backgroundColor:
+
+MaterialStateProperty.all<Color>(Colors.blue.shade300),
+
+shape: MaterialStateProperty.all<
+
+RoundedRectangleBorder>(
+
+RoundedRectangleBorder(
+
+borderRadius: BorderRadius.circular(20.0),
+
+side:
+
+BorderSide(color: Colors.blue, width: 2.0),
+
+),
+
+),
+
+),
+
+),
+
+),
+
+],
+
+),
+
+)
+
+],
+
+),
+
+)),
+
+)
+
+],
+
+),
+
+bottomNavigationBar: BottomIconsWidget(),
+
+);
+
+}
+
+Widget getMyField(
+
+{required String hintText, required TextEditingController controller}) {
+
+return Padding(
+
+padding: const EdgeInsets.all(10.0),
+
+child: TextField(
+
+controller: controller,
+
+decoration: InputDecoration(
+
+hintText: 'Enter $hintText',
+
+labelText: hintText,
+
+border: const OutlineInputBorder(
+
+borderRadius: BorderRadius.all(Radius.circular(5)))),
+
+),
+
+);
+
+}
+
+}
