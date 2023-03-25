@@ -165,3 +165,22 @@ borderRadius: BorderRadius.circular(
 boxShadow: [
 
 BoxShadow(
+  color: Colors.grey
+
+.withOpacity(0.5), // Choose your desired color
+
+spreadRadius: 2, // The spread radius of the shadow
+
+blurRadius: 5, // The blur radius of the shadow
+
+offset: Offset(0, 3), // The position of the shadow
+
+),
+
+],
+
+),
+
+child: Card(
+
+elevation: 4, // This will add a default shadow
