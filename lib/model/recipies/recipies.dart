@@ -1,3 +1,4 @@
+//Imports
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
@@ -5,6 +6,7 @@ Recipie journalLogFromJson(String str) => Recipie.fromJson(json.decode(str));
 
 String journalLogToJson(Recipie data) => json.encode(data.toJson());
 
+//Recipe Class
 class Recipie {
     Recipie({
         this.id,
