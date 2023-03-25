@@ -249,3 +249,32 @@ journalLog: journalLogs[index],
 },
 
 ),
+InkWell(
+
+child: const Icon(
+
+Icons.delete,
+
+color: Colors.red,
+
+),
+
+onTap: () {
+
+showDialog(
+
+context: context,
+
+builder: (BuildContext context) {
+
+return ConfirmationDialog(
+
+title: 'Confirm Deletion',
+
+message:
+
+'Are you sure you want to delete this item?',
+
+onConfirm: () {
+
+_reference
