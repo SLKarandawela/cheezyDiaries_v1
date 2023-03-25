@@ -20,3 +20,16 @@ import '../../widgets/loader_navigator.dart';
 class JournalCreate extends StatefulWidget {
 
 const JournalCreate({super.key});
+@override
+
+State<JournalCreate> createState() => _JournalCreateState();
+
+}
+
+class _JournalCreateState extends State<JournalCreate> {
+
+final TextEditingController namecontroller = TextEditingController();
+
+final TextEditingController datecontroller = TextEditingController();
+
+final TextEditingController desccontroller = TextEditingController();
