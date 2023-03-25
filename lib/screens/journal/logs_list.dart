@@ -36,3 +36,14 @@ FirebaseFirestore.instance.collection('journal');
 //   JournalLog(id: "12345", logTitle: "Sixth log", logDate: "3/20/23", logDescription: "sample description"),
 
 // ];
+@override
+
+Widget build(BuildContext context) {
+
+return Scaffold(
+
+body: Column(
+
+children: [
+
+const ScreenHeader(title: "My logs"),
