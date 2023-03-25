@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "222077695503",
+    "project_id": "cheezy-diaries",
+    "storage_bucket": "cheezy-diaries.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222077695503:android:850c7de8c422176e92557a",
+        "android_client_info": {
+          "package_name": "com.example.cheezy_diaries"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222077695503-s1snccajkncsr4c93u1ujj556aflh4hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGTA6TWsMDpmbGU9gamhiPIpMe60bOQoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222077695503-s1snccajkncsr4c93u1ujj556aflh4hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -30,6 +30,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+<<<<<<< HEAD
+=======
+  cloud_firestore: ^4.4.5
+  firebase_core: ^2.8.0
+  intl: ^0.18.0
+  geolocator: ^9.0.2
+  http: ^0.13.5
+>>>>>>> 178e5c6edaf4764d8d635d150afd6c47f5b76950
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -53,13 +61,38 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 178e5c6edaf4764d8d635d150afd6c47f5b76950
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+<<<<<<< HEAD
   # assets:
+=======
+
+  assets:
+      - assets/images/diary.png
+      - assets/images/schedule.png
+      - assets/images/fry.png
+      - assets/images/pizza.png
+      - assets/images/health.png
+      - assets/images/writing.png
+      - assets/images/cooking.png
+      - assets/images/cuisine.png
+      - assets/images/fitness.png
+      
+
+      
+
+
+
+>>>>>>> 178e5c6edaf4764d8d635d150afd6c47f5b76950
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

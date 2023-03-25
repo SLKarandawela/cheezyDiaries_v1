@@ -10,6 +10,10 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:cheezy_diaries/main.dart';
 
+<<<<<<< HEAD
+=======
+//test functions
+>>>>>>> 178e5c6edaf4764d8d635d150afd6c47f5b76950
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.

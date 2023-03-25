@@ -22,6 +22,10 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
+<<<<<<< HEAD
+=======
+apply plugin: 'com.google.gms.google-services'
+>>>>>>> 178e5c6edaf4764d8d635d150afd6c47f5b76950
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
@@ -47,7 +51,11 @@ android {
         applicationId "com.example.cheezy_diaries"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+<<<<<<< HEAD
         minSdkVersion flutter.minSdkVersion
+=======
+        minSdkVersion 19
+>>>>>>> 178e5c6edaf4764d8d635d150afd6c47f5b76950
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
