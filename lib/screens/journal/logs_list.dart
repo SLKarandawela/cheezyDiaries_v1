@@ -21,3 +21,18 @@ final CollectionReference _reference =
 
 FirebaseFirestore.instance.collection('journal');
 // ];
+// List <JournalLog> journalLogs = [
+
+//   JournalLog(id: "12345", logTitle: "First log", logDate: "3/20/23", logDescription: "sample description"),
+
+//   JournalLog(id: "12345", logTitle: "Second log", logDate: "3/20/23", logDescription: "sample description"),
+
+//   JournalLog(id: "12345", logTitle: "Third log", logDate: "3/20/23", logDescription: "sample description"),
+
+//   JournalLog(id: "12345", logTitle: "Fourth log", logDate: "3/20/23", logDescription: "sample description"),
+
+//   JournalLog(id: "12345", logTitle: "Fifth log", logDate: "3/20/23", logDescription: "sample description"),
+
+//   JournalLog(id: "12345", logTitle: "Sixth log", logDate: "3/20/23", logDescription: "sample description"),
+
+// ];
