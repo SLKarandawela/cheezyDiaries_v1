@@ -1,3 +1,4 @@
+//imports
 import 'dart:math';
 import 'package:cheezy_diaries/model/journal/my_journal.dart';
 import 'package:cheezy_diaries/model/recipies/recipies.dart';
@@ -125,6 +126,7 @@ class _RecipieCreateState extends State<RecipieCreate> {
     );
   }
 
+  //add recipe and navigation
   void addRecipieAndNavigate(Recipie mRecipie, BuildContext context) {
     // reference to firebase
     final recipieRef = FirebaseFirestore.instance.collection('recipie').doc();
