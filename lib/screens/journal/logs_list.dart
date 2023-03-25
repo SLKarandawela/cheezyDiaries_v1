@@ -73,3 +73,26 @@ List<JournalLog> journalLogs = documents
 .map((e) => JournalLog(
 
 id: e['id'],
+logTitle: e['logTitle'],
+
+logDate: e['logDate'],
+
+logDescription: e['logDescription']))
+
+.toList()
+
+..sort((a, b) => b.logDate.compareTo(a.logDate));
+
+return _getBody(journalLogs);
+
+} else {
+
+return Center(
+
+child: CircularProgressIndicator(),
+
+);
+
+}
+
+},
