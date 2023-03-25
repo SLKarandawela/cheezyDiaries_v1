@@ -47,3 +47,16 @@ body: Column(
 children: [
 
 const ScreenHeader(title: "My logs"),
+FutureBuilder<QuerySnapshot>(
+
+future: _reference.get(),
+
+builder: (context, snapshot) {
+
+if (snapshot.hasError) {
+
+return const Center(
+
+child: Text("oops! something went wrong"),
+
+);
