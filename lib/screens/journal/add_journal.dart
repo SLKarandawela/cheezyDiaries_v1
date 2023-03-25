@@ -215,3 +215,10 @@ FirebaseFirestore.instance.collection('journal').doc();
 jLog.id = journalLogRef.id;
 
 final data = jLog.toJson();
+journalLogRef.set(data).whenComplete(() {
+
+Navigator.push(
+
+context,
+
+MaterialPageRoute(
