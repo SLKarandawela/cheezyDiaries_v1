@@ -127,3 +127,26 @@ final CollectionReference = FirebaseFirestore
 .instance
 
 .collection('journal');
+CollectionReference.doc(updatedLog.id)
+
+.update(updatedLog.toJson())
+
+.whenComplete(() {
+
+Navigator.push(
+
+context,
+
+MaterialPageRoute(
+
+builder: (context) => LoadingPage(
+
+nextPage: LogList(),
+
+imageAsset: 'assets/images/health.png',
+
+loadingText: 'updating a log...',
+
+),
+
+));
