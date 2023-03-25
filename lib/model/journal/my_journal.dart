@@ -1,4 +1,4 @@
-mport 'package:meta/meta.dart';
+import 'package:meta/meta.dart';
 
 import 'dart:convert';
 
@@ -50,3 +50,4 @@ Map<String, dynamic> toJson() => {
 };
 
 }
+
