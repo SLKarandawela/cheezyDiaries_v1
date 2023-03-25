@@ -201,3 +201,26 @@ child: ListTile(
 title: Text(
 
 journalLogs[index].logTitle,
+style: headerTextStyle,
+
+),
+
+subtitle: Text(journalLogs[index].logDate),
+
+leading: const CircleAvatar(
+
+radius: 25,
+
+backgroundImage: AssetImage('assets/images/writing.png'),
+
+),
+
+trailing: SizedBox(
+
+width: 60,
+
+child: Row(
+
+children: [
+
+InkWell(
