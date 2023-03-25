@@ -60,3 +60,16 @@ return const Center(
 child: Text("oops! something went wrong"),
 
 );
+}
+
+if (snapshot.hasData) {
+
+QuerySnapshot querySnapshot = snapshot.data!;
+
+List<QueryDocumentSnapshot> documents = querySnapshot.docs;
+
+List<JournalLog> journalLogs = documents
+
+.map((e) => JournalLog(
+
+id: e['id'],
