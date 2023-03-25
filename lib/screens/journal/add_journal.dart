@@ -233,3 +233,8 @@ loadingText: 'Creating a log...',
 ),
 
 ));
+});
+
+}
+
+}
