@@ -121,3 +121,20 @@ onPressed: () {
 namecontroller.text = '';
 
 datecontroller.text = '';
+desccontroller.text = '';
+
+},
+
+child: const Text('Reset'),
+
+style: ButtonStyle(
+
+backgroundColor:
+
+MaterialStateProperty.all<Color>(Colors.blue.shade300),
+
+shape: MaterialStateProperty.all<
+
+RoundedRectangleBorder>(
+
+RoundedRectangleBorder(
