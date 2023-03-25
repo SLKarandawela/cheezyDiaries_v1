@@ -81,3 +81,26 @@ child: Row(
 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
 children: [
+  Container(
+
+width: 130,
+
+child: ElevatedButton(
+
+onPressed: () {
+
+JournalLog updatedLog = JournalLog(
+
+id: journalLog.id,
+
+logTitle: namecontroller.text,
+
+logDate: datecontroller.text,
+
+logDescription: desccontroller.text);
+
+final CollectionReference = FirebaseFirestore
+
+.instance
+
+.collection('journal');
