@@ -63,3 +63,17 @@ children: [
 getMyField(
 
 hintText: 'Overall Memory', controller: namecontroller),
+
+DatePickerFormField(
+
+hintText: 'Date', textEditingController: datecontroller),
+
+getMyField(
+
+hintText: 'Description', controller: desccontroller),
+
+Padding(
+
+padding: const EdgeInsets.only(top: 40),
+
+child: Row(
