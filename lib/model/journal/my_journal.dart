@@ -37,3 +37,16 @@ logDate: json["logDate"],
 logDescription: json["logDescription"],
 
 );
+Map<String, dynamic> toJson() => {
+
+"id": id,
+
+"logTitle": logTitle,
+
+"logDate": logDate,
+
+"logDescription": logDescription,
+
+};
+
+}
