@@ -30,3 +30,10 @@ final String logDescription;
 factory JournalLog.fromJson(Map<String, dynamic> json) => JournalLog(
 
 id: json["id"],
+logTitle: json["logTitle"],
+
+logDate: json["logDate"],
+
+logDescription: json["logDescription"],
+
+);
