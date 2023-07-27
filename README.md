@@ -22,14 +22,4 @@ meal experiences all in one place, whether you're a professional chef or a home 
 The mobile app is built with the flutter mobile application framework and the firebase 
 cloud database, as well as user-friendly interfaces
 
-### Contributors
 
-Group ID - 33
-
-IT19973920 - Karandawela S.L (Leader)
-
-IT19067148 - Piumira S.M.I
-
-IT19964324 - Kavindi N.A.H
-
-IT19978048 - Gunarathne B.D.K.J
